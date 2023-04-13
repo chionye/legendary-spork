@@ -1,26 +1,17 @@
 {
-  "name": "capedbaldy",
-  "private": true,
-  "version": "0.0.0",
-  "type": "module",
+  "name": "y",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
   "scripts": {
-    "dev": "vite",
-    "build": "vite build",
-    "preview": "vite preview"
+    "server":"npm rum dev --prefix server",
+    "client":"npm rum dev --prefix client",
+    "dev":"concurrently \"npm run server\" \"npm run client\"",
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "author": "",
+  "license": "ISC",
   "dependencies": {
-    "@emotion/react": "^11.10.6",
-    "@emotion/styled": "^11.10.6",
-    "@mui/material": "^5.12.0",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0",
-    "react-router-dom": "^6.10.0"
-  },
-  "devDependencies": {
-    "@types/react": "^18.0.28",
-    "@types/react-dom": "^18.0.11",
-    "@vitejs/plugin-react": "^3.1.0",
-    "tailwindcss": "^3.3.1",
-    "vite": "^4.2.0"
+    "concurrently": "^8.0.1"
   }
 }
