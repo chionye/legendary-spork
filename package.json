@@ -4,14 +4,15 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "server":"npm rum dev --prefix server",
-    "client":"npm rum dev --prefix client",
-    "dev":"concurrently \"npm run server\" \"npm run client\"",
+    "server": "npm rum dev --prefix server",
+    "client": "npm rum dev --prefix client",
+    "dev": "concurrently \"npm run server\" \"npm run client\"",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "concurrently": "^8.0.1"
+    "concurrently": "^8.0.1",
+    "puppeteer": "^19.9.0"
   }
 }

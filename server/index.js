@@ -1,40 +1,26 @@
-const axios = require("axios");
-var cheerio = require("cheerio");
+/** @format */
+
 const express = require("express");
 const app = express();
+const cors = require("cors");
+const scraper = require("./pageScraper");
+const linksGrabber = require("./linksGrabber");
 
+app.use(cors());
+app.use(express.json());
 
-app.get('/api/v1/scrape', async (req, res)=>{
-    const baseUrl = req.body.url;
-    try {
-        let homePageLinks = await getLinksFromURL(baseUrl);
-        console.log(homePageLinks);
-    } catch (e) {
-        console.log(e);
-    }
-    res.send("test");
-})
-
-async function getLinksFromURL(url) {
+app.post("/scrape", async (req, res) => {
+  const baseUrl = req.body.url;
   try {
-    let links = [];
-    let httpResponse = await axios.get(url);
-
-    let $ = cheerio.load(httpResponse.data);
-    let linkObjects = $("a"); // get all hyperlinks
-
-    linkObjects.each((index, element) => {
-      links.push({
-        text: $(element).text(), // get the text
-        href: $(element).attr("href"), // get the href attribute
-      });
-    });
-    return links;
+    let homePageLinks = [...(await linksGrabber(baseUrl))];
+    scraper(homePageLinks).then(() =>
+      res.send(
+        "The result file is being generated, please find it in the server folder..."
+      )
+    );
   } catch (e) {
-    console.log(e);
+    res.send(e);
   }
-}
-
-app.listen(5000, ()=>{
-    console.log("app listening on port 5000")
 });
+
+app.listen(9000);
