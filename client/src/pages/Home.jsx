@@ -29,7 +29,6 @@ export default function Home() {
         setLoading(false);
         setOpen(true);
         setError(response.data);
-        console.log(response);
       })
       .catch(function (error) {
         console.log(error);

@@ -20,7 +20,9 @@ const pageScraper = async (url) => {
     await page.goto(url);
     const extractedText = await page.$eval("*", (el) => el.innerText);
     const extractedEmails = extractedText.match(/([a-zA-Z0-9._-]+@[a-zA-Z0-9._-]+\.[a-zA-Z0-9._-]+)/gi);
-    writeToFile(extractedEmails);
+    if (extractedEmails) {
+      writeToFile(extractedEmails);
+    }
   });
 
   for (let index = 0; index < url.length; index++) {
