@@ -9,5 +9,5 @@ const app = axios.create({
 })
 
 export const Api = async (payload) => {
-    return await app.post('https://paper-mache.herokuapp.com/scrape', payload)
+    return await app.post('/scrape', payload)
 }
