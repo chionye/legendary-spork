@@ -51,7 +51,7 @@ export default function Home() {
               <InputBase
                 sx={{ ml: 1, flex: 1 }}
                 placeholder='Enter URL'
-                inputProps={{ "aria-label": "Enter URL" }}
+                inputProps={{ "aria-label": "Enter UR" }}
                 onChange={(e) => setUrl(e.target.value)}
                 value={url}
               />
