@@ -85,12 +85,6 @@ export default function Home() {
           </div>
         </Box>
       </Container>
-      <Fab
-        color='primary'
-        aria-label='Github'
-        href='https://github.com/chionye'>
-        <GitHub />
-      </Fab>
     </div>
   );
 }
